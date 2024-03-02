@@ -1,32 +1,9 @@
 import React from 'react'
-import { Container, Grid, Box, Typography, Card, CardMedia, CardContent, CardActionArea, CardActions, Button, Stack, IconButton, Chip } from '@mui/material';
+import { Container, Grid, Box, Typography, Card, CardMedia, CardContent, CardActions, Button, Stack, Chip } from '@mui/material';
 import EastIcon from '@mui/icons-material/East';
-function CardService({title}) {
+import { serviceData } from '../../database/db';
 
-    const serviceData = [
-        {
-            title: 'Property Valuation',
-            description: 'Know the right value for your Property before you Buy or Sell.',
-            iconPath: 'https://cdn.iconscout.com/icon/premium/png-512-thumb/property-valuation-1-902809.png?f=webp&w=256',
-            certificate: true
-        },
-        {
-            title: 'Legal Title Check',
-            description: 'Get property checked for clean title and no legal claim/bank attachment',
-            iconPath: 'https://cdn.iconscout.com/icon/premium/png-512-thumb/form-1424157-1204933.png?f=webp&w=256'
-        },
-        {
-            title: 'Rates & Trends',
-            description: 'Know all about Property Rates & Trends in your city',
-            iconPath: 'https://cdn.iconscout.com/icon/premium/png-512-thumb/trends-4-963648.png?f=webp&w=256',
-            certificate: true
-        },
-        {
-            title: 'EMI Calculator',
-            description: "Know how much you'll have to pay every month on your loan",
-            iconPath: 'https://cdn.iconscout.com/icon/free/png-512/free-calculator-calculate-maths-scientific-calc-44531.png?f=webp&w=256'
-        },
-    ]
+function CardService({ title }) {
     return (
         <>
             <Container maxWidth="xl" sx={{ margin: '50px 0' }}>
@@ -35,7 +12,7 @@ function CardService({title}) {
                         {title ? title : 'Advice & Tools'}
                     </Typography>
 
-                    <Grid container sx={{ height: { xs: '100%', md: '246px' }, spacing: { xs: 1, sm: 2, lg: 0 } }}>
+                    <Grid container sx={{ minHeight: { xs: '100%', md: '246px' }, spacing: { xs: 1, sm: 2, lg: 0 }}}>
                         {serviceData?.map((item, index) => (
                             <Grid key={index} xs={12} sm={2} md={4} lg={2} sx={{
                                 margin: { xs: '0 5px', sm: '0 20px', md: '0 20px', lg: '0 20px', xl: '0 20px' },
@@ -70,5 +47,4 @@ function CardService({title}) {
         </>
     );
 }
-
 export default CardService

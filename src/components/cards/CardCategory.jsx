@@ -8,10 +8,6 @@ import Typography from '@mui/material/Typography';
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import { Container, Grid } from '@mui/material';
 
-// import Grid from '@mui/material/Unstable_Grid2';
-// import  from '@mui/material/Grid'; // Grid version 1
-const line = (<Box component="span" sx={{ display: 'block', mx: '2px', transform: 'scale(0.8)' }} > __________ </Box>);
-
 const catalog_property = [
   {
     title: 'Owner Properties',
@@ -30,7 +26,7 @@ const catalog_property = [
     total: 2507
   }
 ]
-const img = ''
+
 function CardCategory() {
   return (
     <>
@@ -39,29 +35,10 @@ function CardCategory() {
           <Typography variant="h5" component="div" sx={{ margin: '0 0 14px 10px ' }}>
             We've got properties for everyone
           </Typography>
-          <Grid container spacing={0} >
+          <Grid container spacing={{xs:1, md:1 ,lg:2} }>
             {
               catalog_property?.map((item, index) => (
-                <Grid key={index}
-                  xs={12}
-                  sm={6}
-                  md={3}
-                  lg={3}
-                  sx={{ m: { xs: 1, md: 0, lg: 0 }}}>
-                  <Card sx={{ bgcolor: '#d8232a', width: { sm: '100%', md: '95%', lg: '80%' } }} >
-                    <CardContent>
-                      <Typography variant="h5" component="div" sx={{ color: 'white' }}>
-                        {item.total}
-                      </Typography>
-                      <Typography variant="h6" component="div" sx={{ color: 'white' }}>
-                        {item.title}
-                      </Typography>
-                    </CardContent>
-                    <CardActions>
-                      <Button size="small" sx={{ color: 'white' }}>Explore</Button><ArrowRightAltIcon sx={{ color: 'white' }} />
-                    </CardActions>
-                  </Card>
-                </Grid>
+                cardCategoryDetails(index, item)
               ))
             }
           </Grid>
@@ -69,6 +46,31 @@ function CardCategory() {
       </Container>
     </>
   )
+
+  function cardCategoryDetails(index, item) {
+    return <Grid item key={index}
+      xs={6}
+      sm={3}
+      md={3}
+      lg={2}
+      xl={2}
+      sx={{ m: { md: 0 } }}
+    >
+      <Card sx={{ bgcolor: '#d8232a', height: '100%', width: '100%' }}>
+        <CardContent>
+          <Typography variant="h5" component="div" sx={{ color: 'white' }}>
+            {item.total}
+          </Typography>
+          <Typography variant="h6" component="div" sx={{ color: 'white' }}>
+            {item.title}
+          </Typography>
+        </CardContent>
+        <CardActions>
+          <Button size="small" sx={{ color: 'white', textAlign: 'end' }}>Explore</Button><ArrowRightAltIcon sx={{ color: 'white' }} />
+        </CardActions>
+      </Card>
+    </Grid>;
+  }
 }
 
 export default CardCategory

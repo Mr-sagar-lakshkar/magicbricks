@@ -1,13 +1,10 @@
 import React from 'react'
-import { Container, Grid, Box, Typography, Card, CardMedia, CardContent, CardActionArea, CardActions, Button, Stack, IconButton } from '@mui/material';
+import { Container, Grid, Typography, Card, CardContent, CardActions, Button } from '@mui/material';
 import StarIcon from '@mui/icons-material/Star';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
-
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+import { Scrollbar } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { EffectFade } from 'swiper/modules';
-
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -194,90 +191,70 @@ function CardExplore() {
         }
     ]
 
-
     return (
         <>
-            <Container maxWidth="xl" sx={{ margin: '50px 0' }}>
-                <Box>
-                    <Grid container sx={{ height: '246px', justifyContent: 'space-between' }}>
-                        <Grid
-                            xs={12}
-                            sm={6}
-                            md={4}
-                            lg={2}
-                            sx={{
+            <Container maxWidth="xl" sx={{ margin: '' }}>
 
-                                bgcolor: "#dff6f9",
-                                // height: "246px",
-                                display: "flex",
-                                justifyContent: "center",
-                                alignItems: "start",
-                                flexDirection: 'column',
-                                p: '20px',
-                                borderRadius: 2
-                            }}
-                        >
-                            <Typography variant="h5" component="span" sx={{ color: "#000", fontFamily: 'cursive', mb: 1 }}>
-                                Explore
-                            </Typography>
-                            <Typography variant="h5" component="div" sx={{ fontFamily: 'sans-serif', }}>
-                                Popular Property in Jaipur
-                            </Typography>
-                        </Grid>
-                        <Grid container spacing={0} xs={12} sm={6} md={8} lg={10}>
-                            <Swiper
-                                modules={[Scrollbar]} scrollbar={{ draggable: true }} slidesPerView={1}
-                                breakpoints={{
-                                    480: { slidesPerView: 1 },
-                                    576: { slidesPerView: 2 },
-                                    768: { slidesPerView: 2 },
-                                    1100: { slidesPerView: 4 },
-
-                                }} >
-                                {porpularProperty?.map((item, index) => (
-                                    <SwiperSlide key={index}>
-                                        <Grid xs={6} lg={6} >
-                                            <Box sx={{ minWidth: 280, }} key={index}>
-                                                <Card variant="outlined" sx={{ minHeight: '246px' }}>
-                                                    <CardContent>
-                                                        <Typography sx={{ fontSize: 18, display: 'flex', alignItems: 'center', color: '#000' }} color="" gutterBottom >
-                                                            {item.title} <OpenInNewIcon fontSize="small" sx={{ marginLeft: 1 }} />
-                                                        </Typography>
-                                                        <Typography variant="subtitle1" component="div" mb={2}>
-                                                            &#x20B9; {new Intl.NumberFormat('en-IN').format(item.price)} - &#x20B9; {new Intl.NumberFormat('en-IN').format(item.sqft)} per sqft
-                                                        </Typography>
-                                                        <Grid sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '75%' }} >
-                                                            <Typography sx={{ display: 'flex', alignItems: 'center', color: '#000' }}>
-                                                                {item.rating}<StarIcon sx={{ color: 'error.dark' }} />
-                                                            </Typography>
-                                                            <Typography variant="body1">
-                                                                {item.review} Reviews
-                                                            </Typography>
-                                                        </Grid>
-                                                    </CardContent>
-                                                    <CardActions >
-
-                                                        <Grid height={55} bgcolor='#dff6f9' width='100%'
-                                                            sx={{ borderRadius: '10px', }}
-                                                            container
-                                                            direction="row"
-                                                            justifyContent="center"
-                                                            alignItems="center">
-                                                            <Button size="small" sx={{ color: '#d8232a', textTransform: 'capitalize', fontWeight: '700' }}>
-                                                                {item.saleProperty} properties for sale <ArrowForwardIcon />
-                                                            </Button>
-                                                        </Grid>
-                                                    </CardActions>
-                                                </Card>
-                                            </Box>
-                                        </Grid>
-                                    </SwiperSlide>
-                                ))}
-
-                            </Swiper>
-                        </Grid>
+                <Grid container sx={{ height: '247px', marginBottom: '25px' }} spacing={{ lg: 1 }}>
+                    <Grid item xs={6} sm={4} md={3} lg={3} sx={{ bgcolor: "#dff6f9", display: "flex", justifyContent: "center", alignItems: "start", flexDirection: 'column', p: '20px 10', borderRadius: 2 }}>
+                        <Typography variant="h5" component="span" sx={{ color: "#000", fontFamily: 'cursive' }}>
+                            Explore
+                        </Typography>
+                        <Typography variant="h5" component="div" sx={{ fontFamily: 'sans-serif', }}>
+                            Popular Property in Jaipur
+                        </Typography>
                     </Grid>
-                </Box>
+                    <Grid item spacing={{ lg:1}} xs={6} sm={8} md={9} lg={9} sx={{ maxHeight: '260px' }}>
+                        <Swiper modules={[Scrollbar]} scrollbar={{ draggable: true }} slidesPerView={1}
+                            breakpoints={{
+                                480: { slidesPerView: 1 },
+                                768: { slidesPerView: 2 },
+                                900: { slidesPerView: 3 },
+                                1300: { slidesPerView: 4 },
+
+                            }} >
+                            {porpularProperty?.map((item, index) => (
+                                <SwiperSlide key={index} >
+                                    <Grid xs={12} sm={10} md={12} lg={10} sx={{ minWidth:'280px' ,height: '235px'}}>
+                                        <Card variant="outlined" sx={{ width: '96%', height: '95%' }}>
+                                            <CardContent>
+                                                <Typography sx={{ fontSize: 18, display: 'flex', alignItems: 'center', color: '#000' }} color="" gutterBottom >
+                                                    {item.title} <OpenInNewIcon fontSize="small" sx={{ marginLeft: 1 }} />
+                                                </Typography>
+                                                <Typography variant="subtitle1" component="div" mb={2}>
+                                                    &#x20B9; {new Intl.NumberFormat('en-IN').format(item.price)} - &#x20B9; {new Intl.NumberFormat('en-IN').format(item.sqft)} per sqft
+                                                </Typography>
+                                                <Grid sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '75%' }} >
+                                                    <Typography sx={{ display: 'flex', alignItems: 'center', color: '#000' }}>
+                                                        {item.rating}<StarIcon sx={{ color: 'error.dark' }} />
+                                                    </Typography>
+                                                    <Typography variant="body1">
+                                                        {item.review} Reviews
+                                                    </Typography>
+                                                </Grid>
+                                            </CardContent>
+                                            <CardActions >
+
+                                                <Grid height={55} bgcolor='#dff6f9' width='100%'
+                                                    sx={{ borderRadius: '10px', }}
+                                                    container
+                                                    direction="row"
+                                                    justifyContent="center"
+                                                    alignItems="center">
+                                                    <Button size="small" sx={{ color: '#d8232a', textTransform: 'capitalize', fontWeight: '700' }}>
+                                                        {item.saleProperty} properties for sale <ArrowForwardIcon />
+                                                    </Button>
+                                                </Grid>
+                                            </CardActions>
+                                        </Card>
+                                    </Grid>
+                                </SwiperSlide>
+                            ))}
+
+                        </Swiper>
+                    </Grid>
+                </Grid>
+
             </Container>
         </>
     );
