@@ -51,7 +51,7 @@ function NavbarCom() {
 
   return (
     <>
-      <AppBar position="static">
+      <AppBar disableGutters position="static">
         <Container maxWidth="xl" sx={{background:'#d8232a'}}>
           <Toolbar disableGutters>
             <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />

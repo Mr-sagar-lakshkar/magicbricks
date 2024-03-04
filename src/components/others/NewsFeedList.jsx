@@ -25,7 +25,7 @@ function NewsFeedList({ title }) {
                             <ListItem sx={{ display: 'flex', alignItems: 'center' }}>
                                 <Typography color='error.main' variant="h6" component="h4" sx={{ ml: '15px', fontWeight: '600' }}>Industry Insights</Typography>
                             </ListItem>
-                            {newFeed?.map((item, index) => (
+                            {newFeed?.map((item, index) => (    
                                 <Fragment key={index}>
                                     {newsFeedList(item)}
                                 </Fragment>

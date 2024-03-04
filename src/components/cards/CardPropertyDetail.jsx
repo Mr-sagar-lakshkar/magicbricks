@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Grid,Typography, Card, CardMedia, CardContent, CardActions, Button } from '@mui/material';
+import { Container, Grid,Typography, Card, CardMedia, CardContent, CardActions, Button} from '@mui/material';
 import { Scrollbar } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -10,9 +10,9 @@ const img_path = 'https://cdn.staticmb.com/magicservicestatic/images/revamp/mbho
 
 function CardPropertyDetail({ title, data }) {
     return (
-        <>
+        <React.Fragment>
             <Container maxWidth="xl" sx={{ margin: '50px 0' }}>
-                    <Typography variant="h5" component="div" sx={{ margin: '0 0 14px 10px ' }}>
+                <Typography variant="h5" component="div" sx={{ margin: '0 0 14px 10px ',fontWeight:'700' }}>
                         {title ? title : 'Exclusive Owner Properties in Jaipur'}
                     </Typography>
                     <Grid container spacing={0} >
@@ -37,7 +37,7 @@ function CardPropertyDetail({ title, data }) {
                         </Swiper>
                     </Grid>
             </Container>
-        </>
+        </React.Fragment>
     )
 
     function cardPropertyDetails(index, item) {
